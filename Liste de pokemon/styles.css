@@ -1,0 +1,124 @@
+/*Style de base*/
+.blink {
+
+    font-size: 100px;
+    color: #484848;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    background-color: rgb(19, 19, 20);
+
+}
+
+.blink span {
+    position: relative;
+    display: inline-block;
+}
+
+/*Effet apres*/
+.blink span::after {
+    display: inline-block;
+    content: attr(data-letter);
+    position: Absolute;
+    left: 0;
+    color: rgba(225, 189, 5, 0.842);
+    text-shadow: 0 0 2px rgba(225, 189, 5, 0.842),
+        0 0 10px rgba(225, 189, 5, 0.842);
+    opacity: 0;
+    animation: bg 1.25s ease-in-out infinite;
+}
+
+@keyframes bg {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+
+    }
+
+}
+
+/*Mettre un delai pour chaque lettre*/
+.blink span:nth-child(2)::after {
+    animation-delay: 0.1s;
+}
+
+.blink span:nth-child(3)::after {
+    animation-delay: 0.2s;
+
+}
+
+.blink span:nth-child(4)::after {
+    animation-delay: 0.3s;
+}
+
+.blink span:nth-child(5)::after {
+    animation-delay: 0.4s;
+}
+
+.blink span:nth-child(6)::after {
+    animation-delay: 0.5s;
+}
+
+.blink span:nth-child(7)::after {
+    animation-delay: 0.6s;
+}
+
+h2 {
+    font-family: cursive;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: "Pokemon solid", Arial, Helvetica, sans-serif;
+    letter-spacing: 0.2rem;
+}
+
+ul {
+    border-style: solid;
+    border-color: rgba(225, 189, 5, 0.842);
+    opacity: 0.9;
+    text-align: center;
+    list-style: none;
+}
+
+
+li:hover {
+    color: rgba(225, 189, 5, 0.842);
+
+}
+
+/*Style de base pour l'image du Pokémon*/
+img.pokemon-image {
+    display: none;
+    width: 100px;
+    opacity: 0;
+}
+
+/* Classe pour montrer l'image lors du survol du parent */
+li:hover img.pokemon-image {
+    display: block;
+    opacity: 1;
+    animation: jump 0.5s infinite;
+    
+}
+
+/* Animation de saut */
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
